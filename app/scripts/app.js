@@ -8,15 +8,16 @@
  *
  * Main module of the application.
  */
-angular
+var demoProjectApp = angular
   .module('demoProjectApp', [
     'ngCookies',
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
-  ])
-  .config(function ($routeProvider) {
+    'ngTouch',
+    'datatables'
+  ]);
+  demoProjectApp.config(function ($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
@@ -25,13 +26,18 @@ angular
       })
       .when('/about', {
         templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
+        controller: 'MainCtrl',
+        controllerAs: 'main'
       })
       .when('/register', {
         templateUrl: 'views/register.html',
-        controller: 'RegisterCtrl',
-        controllerAs: 'register'
+        controller: 'MainCtrl',
+        controllerAs: 'main'
+      })
+      .when('/listing', {
+        templateUrl: 'views/listing.html',
+        controller: 'MainCtrl',
+        controllerAs: 'main'
       })
       .otherwise({
         redirectTo: '/'
